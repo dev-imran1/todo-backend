@@ -1,0 +1,8 @@
+const secureApi = (req,res,next)=>{
+    console.log("ami serure api")
+    next()
+}
+
+module.exports = secureApi;
+
+

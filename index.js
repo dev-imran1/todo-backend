@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const todoSchema = require("./model/todoSchema");
+const secureApi = require("./middleware/secureApi");
 
 const app = express();
 
@@ -24,10 +25,11 @@ app.post("/api/v1/createtodos", async (req, res) => {
 });
 
 
-app.get("/api/v1/all", async (req,res)=>{
-  let data =await todoSchema.find();
+app.get("/api/v1/all",secureApi, async (req,res)=>{
 
-  res.send(data)
+  // let data =await todoSchema.find();
+console.log('okay serure api')
+  // res.send(data)
 })
 
 app.listen(8000, () => {
